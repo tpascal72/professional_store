@@ -1,4 +1,7 @@
 ProfessionalStore::Application.routes.draw do
+
+  root 'frontpage#index'
+
   resources :provinces
 
   resources :corporations

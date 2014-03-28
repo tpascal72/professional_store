@@ -19,7 +19,7 @@
       <tr>
         <td><%= professional.fname %></td>
         <td><%= professional.lname %></td>
-        <td><%= professional.cost_per_hour %></td>
+        <td><%= number_to_currency professional.cost_per_hour %></td>
         <td><%= professional.available %></td>
         <td><%= professional.skills %></td>
         <td><%= link_to 'Show', professional %></td>

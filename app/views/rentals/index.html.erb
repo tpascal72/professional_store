@@ -15,7 +15,7 @@
   <tbody>
     <% @rentals.each do |rental| %>
       <tr>
-        <td><%= rental.amount %></td>
+        <td><%= number_to_currency rental.amount %></td>
         <td><%= rental.start_date %></td>
         <td><%= rental.end_date %></td>
         <td><%= link_to 'Show', rental %></td>
