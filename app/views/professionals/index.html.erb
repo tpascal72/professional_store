@@ -1,0 +1,35 @@
+<h1>Listing professionals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Cost per hour</th>
+      <th>Available</th>
+      <th>Skills</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @professionals.each do |professional| %>
+      <tr>
+        <td><%= professional.fname %></td>
+        <td><%= professional.lname %></td>
+        <td><%= professional.cost_per_hour %></td>
+        <td><%= professional.available %></td>
+        <td><%= professional.skills %></td>
+        <td><%= link_to 'Show', professional %></td>
+        <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
+        <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Professional', new_professional_path %>

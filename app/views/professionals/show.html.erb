@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @professional.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @professional.lname %>
+</p>
+
+<p>
+  <strong>Cost per hour:</strong>
+  <%= @professional.cost_per_hour %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @professional.available %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= @professional.skills %>
+</p>
+
+<%= link_to 'Edit', edit_professional_path(@professional) %> |
+<%= link_to 'Back', professionals_path %>
