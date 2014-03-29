@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329140256) do
+ActiveRecord::Schema.define(version: 20140329152858) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -96,6 +96,11 @@ ActiveRecord::Schema.define(version: 20140329140256) do
     t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "professional_id"
+    t.integer  "order_id"
   end
+
+  add_index "rentals", ["order_id"], name: "index_rentals_on_order_id"
+  add_index "rentals", ["professional_id"], name: "index_rentals_on_professional_id"
 
 end
