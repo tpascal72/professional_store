@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329025717) do
+ActiveRecord::Schema.define(version: 20140329140256) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -76,7 +76,10 @@ ActiveRecord::Schema.define(version: 20140329025717) do
     t.string   "skills"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
+
+  add_index "professionals", ["category_id"], name: "index_professionals_on_category_id"
 
   create_table "provinces", force: true do |t|
     t.string   "name"

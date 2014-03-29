@@ -24,6 +24,12 @@
   <strong>Skills:</strong>
   <%= @professional.skills %>
 </p>
+<% if @professional.category.present? %>
+<p>
+  <strong>Category:</strong>
+  <%= @professional.category.name %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_professional_path(@professional) %> |
 <%= link_to 'Back', professionals_path %>
