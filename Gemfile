@@ -9,6 +9,9 @@ gem "paperclip", "~> 4.1"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Admin Dashboard
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 # Use SCSS for stylesheets
 gem 'sass-rails'
 
