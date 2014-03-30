@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329152858) do
+ActiveRecord::Schema.define(version: 20140330150704) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -57,7 +57,10 @@ ActiveRecord::Schema.define(version: 20140329152858) do
     t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "province_id"
   end
+
+  add_index "corporations", ["province_id"], name: "index_corporations_on_province_id"
 
   create_table "orders", force: true do |t|
     t.string   "status"
@@ -66,7 +69,10 @@ ActiveRecord::Schema.define(version: 20140329152858) do
     t.decimal  "hst_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "corporation_id"
   end
+
+  add_index "orders", ["corporation_id"], name: "index_orders_on_corporation_id"
 
   create_table "professionals", force: true do |t|
     t.string   "fname"
