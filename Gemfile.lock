@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: ceb096c5ed4f4d9a4efcb780ba41151fadebe1e4
+  revision: 5fdb860dd41794a63bcfcffb88f4b56989f28d7b
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -100,7 +100,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.2)
     orm_adapter (0.5.0)
-    paperclip (4.1.1)
+    paperclip (3.5.4)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -176,7 +176,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
-  paperclip (~> 4.1)
+  paperclip (~> 3.5.3)
   rails (= 4.0.2)
   sass-rails (= 4.0.2)
   sdoc
