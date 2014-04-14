@@ -1,5 +1,5 @@
 class ProfessionalsController < ApplicationController
-  before_action :set_professional, only: [:show, :edit, :update, :destroy]
+  before_action :set_professional, only: [:show]
 
   # GET /professionals
   # GET /professionals.json
@@ -10,43 +10,6 @@ class ProfessionalsController < ApplicationController
   # GET /professionals/1
   # GET /professionals/1.json
   def show
-  end
-
-  # GET /professionals/new
-  def new
-    @professional = Professional.new
-  end
-
-  # GET /professionals/1/edit
-  def edit
-  end
-
-  # POST /professionals
-  # POST /professionals.json
-
-
-  # PATCH/PUT /professionals/1
-  # PATCH/PUT /professionals/1.json
-  def update
-    respond_to do |format|
-      if @professional.update(professional_params)
-        format.html { redirect_to @professional, notice: 'Professional was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @professional.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /professionals/1
-  # DELETE /professionals/1.json
-  def destroy
-    @professional.destroy
-    respond_to do |format|
-      format.html { redirect_to professionals_url }
-      format.json { head :no_content }
-    end
   end
 
   private
