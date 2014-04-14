@@ -9,8 +9,6 @@
       <th>Available</th>
       <th>Skills</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -23,13 +21,9 @@
         <td><%= professional.available %></td>
         <td><%= professional.skills %></td>
         <td><%= link_to 'Show', professional %></td>
-        <td><%= link_to 'Edit', edit_professional_path(professional) %></td>
-        <td><%= link_to 'Destroy', professional, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Professional', new_professional_path %>

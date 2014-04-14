@@ -5,5 +5,34 @@
   <%= @category.name %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<h1>Listing professionals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Cost per hour</th>
+      <th>Available</th>
+      <th>Skills</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @professionals.each do |professional| %>
+      <tr>
+        <td><%= professional.fname %></td>
+        <td><%= professional.lname %></td>
+        <td><%= number_to_currency professional.cost_per_hour %></td>
+        <td><%= professional.available %></td>
+        <td><%= professional.skills %></td>
+        <td><%= link_to 'Show', professional %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', category_listing_path %>

@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show]
 
   # GET /categories
   # GET /categories.json
@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @professionals = Professional.where('category_id =' + @category.id.to_s)
   end
 
   # GET /categories/new
