@@ -1,8 +1,12 @@
 ProfessionalStore::Application.routes.draw do
 
+  get "frontpage/index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  
   root 'frontpage#index'
+
+  get 'professionals_listing' => 'professionals#professionals_listing'
 
   resources :provinces
 
