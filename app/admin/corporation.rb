@@ -1,6 +1,6 @@
 ActiveAdmin.register Corporation do
 
-  permit_params :name, :address, :province_id
+  permit_params :name, :address, :province_id, :password
 
   
 end

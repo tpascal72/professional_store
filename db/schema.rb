@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330192001) do
+ActiveRecord::Schema.define(version: 20140415220436) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140330192001) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "province_id"
+    t.string   "password"
   end
 
   add_index "corporations", ["province_id"], name: "index_corporations_on_province_id"
