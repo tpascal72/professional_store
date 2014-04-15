@@ -9,6 +9,8 @@ ProfessionalStore::Application.routes.draw do
 
   get 'category_listing' => 'categories#index'
 
+  get 'corporate_log_in' => 'frontpage#corporate_log_in'
+
   get 'search_results' => 'frontpage#search_results', as: 'search_results'
 
   resources :provinces
