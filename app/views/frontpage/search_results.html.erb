@@ -1,7 +1,5 @@
 <%= link_to "All Professionals", professionals_listing_path %>
 <%= link_to "Categories", category_listing_path %>
 <%= link_to "Log in as Admin", admin_root_path %>
-<%= form_tag search_results_path, method: 'get' do %>
-  <%= text_field_tag :search_keywords %>
-  <%= submit_tag "Search" %>
-<% end %>
+<h3>Search results</h3>
+<%= render 'professionals/professional_list' %>
