@@ -13,7 +13,7 @@ class FrontpageController < ApplicationController
   # "Create" a login, aka "log the user in"
   def corporate_log_in
 
-  	if params[:username] != "" && params[:password] != ""
+  	if params[:username] != nil && params[:password] != nil
 
       if user = Corporation.authenticate(params[:username], params[:password])
         # Save the user ID in the session so it can be used in
@@ -23,8 +23,6 @@ class FrontpageController < ApplicationController
       else
       	flash[:login_notice] = "Username/password incorrect."
       end
-    else
-      flash[:login_notice] = "You need to fill in both fields."
     end
   end
 end
