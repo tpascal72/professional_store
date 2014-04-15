@@ -2,4 +2,9 @@
 <%= link_to "Categories", category_listing_path %>
 <%= link_to "Log in as Admin", admin_root_path %>
 <h3>Search results</h3>
+
+<% if @professionals.empty? %>
+  <p>No results found</p>
+<% end %>
+
 <%= render 'professionals/professional_list' %>
