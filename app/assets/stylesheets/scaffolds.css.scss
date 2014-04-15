@@ -67,3 +67,24 @@ div {
     list-style: square;
   }
 }
+
+#header_links {
+  width: 100%;
+  background-color: #99DACA;
+  border-top: 2px solid #5C8379;
+  border-bottom: 2px solid #5C8379;
+  height: 26px;
+  padding-top: 4px;
+  a {
+    padding: 2px 5px;
+  }
+  form {
+    display: inline;
+    float: right;
+  }
+  input {
+    font-size: .85em;
+    width: 70px;
+    padding: 1px 20px;
+  }
+}

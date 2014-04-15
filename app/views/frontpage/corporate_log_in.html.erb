@@ -2,9 +2,7 @@
   <p><%= flash[:login_notice] %></p>
 <% end %>
 
-<%= link_to "All Professionals", professionals_listing_path %>
-<%= link_to "Categories", category_listing_path %>
-<%= link_to "Log in as Admin", admin_root_path %>
+<%= render 'header_links' %>
 
 <% unless session[:current_user_id] %>
     <%= form_tag("/corporate_log_in", method: "get") do %>
