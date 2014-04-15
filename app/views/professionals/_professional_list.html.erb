@@ -6,6 +6,7 @@
       <th>Cost per hour</th>
       <th>Available</th>
       <th>Skills</th>
+      <th>Category</th>
       <th></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= number_to_currency professional.cost_per_hour %></td>
         <td><%= professional.available %></td>
         <td><%= professional.skills %></td>
+        <td><%= professional.category.name %></td>
         <td><%= link_to 'Show', professional %></td>
       </tr>
     <% end %>

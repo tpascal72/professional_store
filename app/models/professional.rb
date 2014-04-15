@@ -1,5 +1,5 @@
 class Professional < ActiveRecord::Base
-  has_attached_file :image
+  has_attached_file :image, styles: { thumb: "80x80#" }, whiny_thumbnails: false
   has_many :rentals
   belongs_to :category
 
