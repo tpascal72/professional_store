@@ -1,17 +1,17 @@
 class Corporation < ActiveRecord::Base
 
-	belongs_to :province
-	has_many :orders
+  belongs_to :province
+  has_many :orders
 
-	validates :name, :address, :password, presence: true
-	validates :password, length: { minimum: 6 }
+  validates :name, :address, :password, presence: true
+  validates :password, length: { minimum: 6 }
 
-	def self.authenticate(name)
+  def self.authenticate(name, password)
     user = find_by_name(name)
-    if user # && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+    if user && user.password == password
       user
     else
       nil
     end
-  	end
+  end
 end

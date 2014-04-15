@@ -2,8 +2,14 @@
 <%= link_to "Categories", category_listing_path %>
 <%= link_to "Log in as Admin", admin_root_path %>
 
+<% if flash[:login_notice] %>
+  <p><%= flash[:login_notice] %></p>
+<% end %>
+
 <%= form_tag("/corporate_log_in", method: "get") do %>
-<%= label_tag(:username, "id:") %>
+<%= label_tag(:username, "Username:") %>
 <%= text_field_tag(:username) %>
+<%= label_tag(:password, "Password:") %>
+<%= text_field_tag(:password) %>
 <%= submit_tag("Submit") %>
 <% end %>
