@@ -5,6 +5,6 @@
 
 <% if @professionals.empty? %>
   <p>No results found</p>
+<% else %>
+  <%= render 'professionals/professional_list' %>
 <% end %>
-
-<%= render 'professionals/professional_list' %>

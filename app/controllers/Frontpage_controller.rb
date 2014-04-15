@@ -3,7 +3,11 @@ class FrontpageController < ApplicationController
   end
 
   def search_results #Displays search results
-  	@professionals = Professional.keyword_search(params[:search_keywords])
+  	if params[:search_keywords] == ""
+      @professionals = Array.new
+    else
+      @professionals = Professional.keyword_search(params[:search_keywords], params[:cat_id])
+    end
   end
 
   # "Create" a login, aka "log the user in"

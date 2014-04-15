@@ -5,10 +5,7 @@
 <%= session[:current_user_id] %>
 
 <%= form_tag search_results_path, method: 'get' do %>
-  <%= select_tag(:search_keywords, options_from_collection_for_select(Category.all, :id, :name)) %>
-  <%= submit_tag "Search" %>
-<% end %>
-<%= form_tag search_results_path, method: 'get' do %>
+  <%= select_tag(:cat_id, options_from_collection_for_select(Category.all, :id, :name), include_blank: 'All') %>
   <%= text_field_tag :search_keywords %>
   <%= submit_tag "Search" %>
 <% end %>

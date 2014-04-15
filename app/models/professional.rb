@@ -6,8 +6,15 @@ class Professional < ActiveRecord::Base
   validates :fname, :lname, :cost_per_hour, :available, :skills, presence: true
   validates :cost_per_hour, numericality: true, format: { with: /\A\d+\.?\d{0,2}\z/}
 
-  def self.keyword_search(keywords) #Displays search results
-  	keywords = "%" + keywords + "%"
-  	@professionals = Professional.where("skills LIKE ? OR category_id LIKE ?", keywords, keywords)
+  def self.keyword_search(keywords, cat_id) #Displays search results
+  	
+    if cat_id == nil || cat_id == ""
+      keywords = "%" + keywords + "%"
+      @professionals = Professional.where("skills LIKE ?", keywords)
+    else
+      keywords = "%" + keywords + "%"
+      cat_id = "%" + cat_id + "%"
+      @professionals = Professional.where("skills LIKE ? AND category_id LIKE ?", keywords, cat_id)
+    end
   end
 end
