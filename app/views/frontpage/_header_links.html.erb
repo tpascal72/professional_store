@@ -1,16 +1,21 @@
-<header id="header_links">
-<%= link_to "Home Page", root_path %>
-<%= link_to "All Professionals", professionals_listing_path %>
-<%= link_to "Categories", category_listing_path %>
-<%= link_to "Log in as Admin", admin_root_path %>
-<%= link_to "Corporate Log-In", corporate_log_in_path %>
-<% if session[:current_user_id] %>
-  <i>Logged in as: <%= session[:current_user_id] %></i>
-<% end %>
+<header>
+  <section id="logo_area">
+    <%= image_tag("itsprLogo.png") %>
+  </section>
+  <section id="header_links">
+    <%= link_to "Home Page", root_path %>
+    <%= link_to "All Professionals", professionals_listing_path %>
+    <%= link_to "Categories", category_listing_path %>
+    <%= link_to "Log in as Admin", admin_root_path %>
+    <%= link_to "Corporate Log-In", corporate_log_in_path %>
+    <% if session[:current_user_id] %>
+      <i>Logged in as: <%= session[:current_user_id] %></i>
+    <% end %>
 
-<%= form_tag search_results_path, id: "search", method: 'get' do %>
-  <%= select_tag(:cat_id, options_from_collection_for_select(Category.all, :id, :name), include_blank: 'All') %>
-  <%= text_field_tag :search_keywords %>
-  <%= submit_tag "Search" %>
-<% end %>
+    <%= form_tag search_results_path, id: "search", method: 'get' do %>
+      <%= select_tag(:cat_id, options_from_collection_for_select(Category.all, :id, :name), include_blank: 'All') %>
+      <%= text_field_tag :search_keywords %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </section>
 </header>
