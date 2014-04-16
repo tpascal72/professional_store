@@ -4,14 +4,21 @@
 
 <%= render 'header_links' %>
 
-<% unless session[:current_user_id] %>
-    <%= form_tag("/corporate_log_in", method: "get") do %>
-    <%= label_tag(:username, "Username:") %>
-    <%= text_field_tag(:username) %>
-    <%= label_tag(:password, "Password:") %>
-    <%= text_field_tag(:password) %>
-    <%= submit_tag("Submit") %>
-  <% end %>
-<% else %>
-  <p>You are already logged in</p>
-<% end %>
+<section id="content_holder">
+  <main id="content">
+    <% unless session[:current_user_id] %>
+        <%= form_tag("/corporate_log_in", method: "get") do %>
+          <%= label_tag(:username, "Username:") %>
+          <%= text_field_tag(:username) %>
+          <%= label_tag(:password, "Password:") %>
+          <%= text_field_tag(:password) %>
+          <%= submit_tag("Submit") %>
+        <% end %>
+    <% else %>
+      <p>You are already logged in</p>
+      <%= form_tag("/corporate_log_in", method: "get") do %>
+        <%= submit_tag("Log-out", name: 'logout') %>
+      <% end %>
+    <% end %>
+  </main>
+</section>

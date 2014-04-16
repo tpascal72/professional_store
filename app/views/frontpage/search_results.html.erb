@@ -1,8 +1,10 @@
 <%= render 'header_links' %>
-<h3>Search results</h3>
+<section id="content_holder">
+  <h3>Search results</h3>
 
-<% if @professionals.empty? %>
-  <p>No results found</p>
-<% else %>
-  <%= render 'professionals/professional_list' %>
-<% end %>
+  <% if @professionals.empty? %>
+    <p>No results found</p>
+  <% else %>
+    <%= render 'professionals/professional_list' %>
+  <% end %>
+</section>

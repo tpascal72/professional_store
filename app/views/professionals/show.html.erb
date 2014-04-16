@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <%= render 'Frontpage/header_links' %>
-<section>
-  <section id="professional">
+<section id="content_holder">
+  <section id="content">
     <p><%= image_tag @professional.image.url %></p>
 
     <p>
@@ -42,9 +42,9 @@
         <%= submit_tag "Add Rental" %>
       <% end %>
     <% else %>
-      <p>Already added to cart</p>
+      <p id="add_item_alert">Already added to cart</p>
     <% end %>
   <% else %>
-    <p>Must sign in to rent</p>
+    <p id="add_item_alert">Must sign in to rent</p>
   <% end %>
 </section>
