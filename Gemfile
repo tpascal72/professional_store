@@ -12,6 +12,10 @@ gem 'sqlite3'
 # Admin Dashboard
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+# webform editing for active admin
+gem 'activeadmin-dragonfly', github: 'stefanoverna/activeadmin-dragonfly'
+gem 'activeadmin-wysihtml5', github: 'stefanoverna/activeadmin-wysihtml5'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', "4.0.2"
 

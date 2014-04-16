@@ -1,6 +1,6 @@
 <%= render "header_links" %>
 <section>
-  <p>
-    This is the front page content
-  </p>
+  <section id="content">
+    <%= @page_content.index.html_safe %>
+  </section>
 </section>

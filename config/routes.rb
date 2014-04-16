@@ -15,7 +15,7 @@ ProfessionalStore::Application.routes.draw do
 
   get 'search_results' => 'frontpage#search_results', as: 'search_results'
 
-  
+
 
   resources :provinces
 

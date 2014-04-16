@@ -1,5 +1,6 @@
 class FrontpageController < ApplicationController
   def index
+  	@page_content = Page.first
   end
 
   def search_results #Displays search results

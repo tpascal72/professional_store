@@ -111,8 +111,9 @@ section {
   border: 2px solid $border-color;
   padding: 10px;
   background-color: #D7E8DF;
-}
-
-#professional {
-  width: 50%;
+  #content {
+    width: 60%;
+    background-color: white;
+    margin: 0px 30px;
+  }
 }
