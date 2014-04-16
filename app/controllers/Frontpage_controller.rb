@@ -11,12 +11,12 @@ class FrontpageController < ApplicationController
   end
 
   def add_rental
-  	if !params[:professional_num].nil? && !params[:hours].nil? && !params[:days].nil? && !params[:start_days].nil?
+  	# large validation ensures that all params must be present and 
+  	if !params[:professional_num].nil? && !params[:hours].nil? && !params[:days].nil? && !params[:start_days].nil? && !(session[:professional].include? params[:professional_num].to_i )
   	  (session[:professional] ||= []) << params[:professional_num].to_i
   	  (session[:hours] ||= []) << params[:hours]
   	  (session[:days] ||= []) << params[:days]
   	  (session[:start_days] ||= []) << params[:start_days]
-  	else
   	end
   end
 
