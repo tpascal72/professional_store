@@ -10,6 +10,13 @@ class FrontpageController < ApplicationController
     end
   end
 
+  def add_rental
+  	(session[:professional] ||= []) << params[:professional_num]
+  	(session[:hours] ||= []) << params[:hours]
+  	(session[:days] ||= []) << params[:days]
+  	(session[:start_days] ||= []) << params[:start_days]
+  end
+
   # "Create" a login, aka "log the user in"
   def corporate_log_in
 

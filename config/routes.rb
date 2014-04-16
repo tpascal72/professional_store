@@ -11,6 +11,8 @@ ProfessionalStore::Application.routes.draw do
 
   get 'corporate_log_in' => 'frontpage#corporate_log_in'
 
+  get 'add_rental' => 'frontpage#add_rental'
+
   get 'search_results' => 'frontpage#search_results', as: 'search_results'
 
   resources :provinces

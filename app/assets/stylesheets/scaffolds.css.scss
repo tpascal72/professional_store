@@ -1,3 +1,5 @@
+$border-color: #5C8379;
+
 body {
   background-color: #fff;
   color: #333;
@@ -70,21 +72,36 @@ div {
 
 #header_links {
   width: 100%;
-  background-color: #99DACA;
-  border-top: 2px solid #5C8379;
-  border-bottom: 2px solid #5C8379;
+  background-color: #62736C;
+  border-top: 2px solid $border-color;
+  border-bottom: 2px solid $border-color;
   height: 26px;
   padding-top: 4px;
+  color: #FFF;
   a {
     padding: 2px 5px;
+    color: #FFF;
   }
   form {
     display: inline;
     float: right;
+    pading-right: 10px;
   }
   input {
     font-size: .85em;
-    width: 70px;
+    width: 80px;
     padding: 1px 20px;
   }
+}
+
+section {
+  margin: 0px auto;
+  width: 90%;
+  border: 2px solid $border-color;
+  padding: 10px;
+  background-color: #D7E8DF;
+}
+
+#professional {
+  width: 50%;
 }

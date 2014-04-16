@@ -1,28 +1,42 @@
 <p id="notice"><%= notice %></p>
 <%= render 'Frontpage/header_links' %>
-<p><%= image_tag @professional.image.url %></p>
+<section>
+  <section id="professional">
+    <p><%= image_tag @professional.image.url %></p>
 
-<p>
-  <strong>Name:</strong> <%= @professional.fname %> <%= @professional.lname %>
-</p>
+    <p>
+      <strong>Name:</strong> <%= @professional.fname %> <%= @professional.lname %>
+    </p>
 
-<p>
-  <strong>Cost per hour:</strong>
-  <%= number_to_currency @professional.cost_per_hour %>
-</p>
+    <p>
+      <strong>Cost per hour:</strong>
+      <%= number_to_currency @professional.cost_per_hour %>
+    </p>
 
-<p>
-  <strong>Available:</strong>
-  <%= @professional.available %>
-</p>
+    <p>
+      <strong>Available:</strong>
+      <%= @professional.available %>
+    </p>
 
-<p>
-  <strong>Skills:</strong>
-  <%= @professional.skills %>
-</p>
-<% if @professional.category.present? %>
-<p>
-  <strong>Category:</strong>
-  <%= @professional.category.name %>
-</p>
-<% end %>
+    <p>
+      <strong>Skills:</strong>
+      <%= @professional.skills %>
+    </p>
+    <% if @professional.category.present? %>
+      <p>
+        <strong>Category:</strong>
+        <%= @professional.category.name %>
+      </p>
+    <% end %>
+  </section>
+  <%= form_tag add_rental_path, id: "rental", method: 'get' do %>
+    <%= label_tag :hours, 'Select number of hours per day' %><br>
+    <%= select_tag(:hours, options_for_select([['6',6],['7',7],['8',8],['9',9],['10',10]], 8)) %><br>
+    <%= label_tag :hours, 'Select number of days for rental' %><br>
+    <%= select_tag(:days, options_for_select([['5',5],['6',6],['7',7],['8',8],['9',9],['10',10],['11',11],['12',12],['13',13],['14',14]], 5)) %><br>
+    <%= label_tag :hours, 'Select days until start' %><br>
+    <%= select_tag(:start_days, options_for_select([['2',2],['3',3],['4',4],['5',5]], 3)) %><br>
+    <%= hidden_field_tag :professional_num, @professional.id %>
+    <%= submit_tag "Add Rental" %>
+  <% end %>
+</section>

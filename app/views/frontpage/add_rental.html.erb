@@ -1,0 +1,15 @@
+<%= render 'header_links' %>
+<section>
+<h3>Results</h3>
+
+<% if session[:professional] %>
+  <p>Rental data
+    Professional: <%= session[:professional].last %><br />
+    Hours: <%= session[:hours].last %><br />
+    Days: <%= session[:days].last %><br />
+    Days before starting: <%= session[:start_days].last %><br />
+  </p>
+<% else %>
+  <p>No rentals yet</p>
+<% end %>
+</section>
