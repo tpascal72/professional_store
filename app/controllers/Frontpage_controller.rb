@@ -11,10 +11,13 @@ class FrontpageController < ApplicationController
   end
 
   def add_rental
-  	(session[:professional] ||= []) << params[:professional_num]
-  	(session[:hours] ||= []) << params[:hours]
-  	(session[:days] ||= []) << params[:days]
-  	(session[:start_days] ||= []) << params[:start_days]
+  	if !params[:professional_num].nil? && !params[:hours].nil? && !params[:days].nil? && !params[:start_days].nil?
+  	  (session[:professional] ||= []) << params[:professional_num].to_i
+  	  (session[:hours] ||= []) << params[:hours]
+  	  (session[:days] ||= []) << params[:days]
+  	  (session[:start_days] ||= []) << params[:start_days]
+  	else
+  	end
   end
 
   # "Create" a login, aka "log the user in"

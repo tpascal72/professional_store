@@ -29,14 +29,22 @@
       </p>
     <% end %>
   </section>
-  <%= form_tag add_rental_path, id: "rental", method: 'get' do %>
-    <%= label_tag :hours, 'Select number of hours per day' %><br>
-    <%= select_tag(:hours, options_for_select([['6',6],['7',7],['8',8],['9',9],['10',10]], 8)) %><br>
-    <%= label_tag :hours, 'Select number of days for rental' %><br>
-    <%= select_tag(:days, options_for_select([['5',5],['6',6],['7',7],['8',8],['9',9],['10',10],['11',11],['12',12],['13',13],['14',14]], 5)) %><br>
-    <%= label_tag :hours, 'Select days until start' %><br>
-    <%= select_tag(:start_days, options_for_select([['2',2],['3',3],['4',4],['5',5]], 3)) %><br>
-    <%= hidden_field_tag :professional_num, @professional.id %>
-    <%= submit_tag "Add Rental" %>
+  <% if session[:current_user_id] %>
+    <% if session[:professional].nil? || !(session[:professional].include? @professional.id ) %>
+      <%= form_tag add_rental_path, id: "rental", method: 'get' do %>
+        <%= label_tag :hours, 'Select number of hours per day' %><br>
+        <%= select_tag(:hours, options_for_select([['6',6],['7',7],['8',8],['9',9],['10',10]], 8)) %><br>
+        <%= label_tag :hours, 'Select number of days for rental' %><br>
+        <%= select_tag(:days, options_for_select([['5',5],['6',6],['7',7],['8',8],['9',9],['10',10],['11',11],['12',12],['13',13],['14',14]], 5)) %><br>
+        <%= label_tag :hours, 'Select days until start' %><br>
+        <%= select_tag(:start_days, options_for_select([['2',2],['3',3],['4',4],['5',5]], 3)) %><br>
+        <%= hidden_field_tag :professional_num, @professional.id %>
+        <%= submit_tag "Add Rental" %>
+      <% end %>
+    <% else %>
+      <p>Already added to cart</p>
+    <% end %>
+  <% else %>
+    <p>Must sign in to rent</p>
   <% end %>
 </section>
