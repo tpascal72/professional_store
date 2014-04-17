@@ -79,6 +79,7 @@ class FrontpageController < ApplicationController
       session[:hours] = nil
       session[:days] = nil
       session[:start_days] = nil
+      flash[:login_notice] = "You have been logged out."
     end
   end
 end
