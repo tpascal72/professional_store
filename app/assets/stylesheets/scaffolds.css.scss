@@ -91,13 +91,15 @@ header {
     }
   }
   #header_links {
+  display: block;
     width: 100%;
     margin-left: -12px;
+    margin-top: 2px;
     background-color: $header-color;
     border-top: 2px solid $border-color;
     border-bottom: 2px solid $border-color;
-    height: 18px;
-    padding-top: 4px;
+    height: 26px;
+    padding: 4px 22px 0px 2px;
     color: #FFF;
     a {
       padding: 2px 5px;
@@ -125,8 +127,12 @@ section {
     width: 60%;
     background-color: #FFF;
     margin: 0px 0px 30px 30px;
+    padding: 7px;
     display: inline-block;
     border-radius: 5px;
+    h1, h2, h3, h4, h5, h6, h7, h8 {
+      color: #000;
+    }
   }
   #rental, #add_item_alert {
     width: 30%;

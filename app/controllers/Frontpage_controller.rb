@@ -3,12 +3,38 @@ class FrontpageController < ApplicationController
   	@page_content = Page.first
   end
 
+  def contact
+  	@page_content = Page.first
+  end
+
+  def about
+  	@page_content = Page.first
+  end
+
   def search_results #Displays search results
   	if params[:search_keywords] == ""
       @professionals = Array.new
     else
-      @professionals = Professional.keyword_search(params[:search_keywords], params[:cat_id])
+    	if params[:commit] == 'Available'
+      	  @professionals = Professional.where(available: true).keyword_search(params[:search_keywords], params[:cat_id])
+      	elsif params[:commit] == 'Recently Updated'
+      	  @professionals = Professional.keyword_search(params[:search_keywords], params[:cat_id]).order('updated_at DESC')
+      	else
+      	  @professionals = Professional.keyword_search(params[:search_keywords], params[:cat_id])
+      	end
     end
+  end
+
+  def cart
+  	if !session[:professional].nil? && !session[:current_user_id].nil?
+  	  @professionals = Professional.find(session[:professional])
+  	  @corporation = Corporation.find(session[:current_user_id])
+  	end
+  end
+
+  def make_order
+  	@professionals = Professional.find(session[:professional])
+  	@corporation = Corporation.find(session[:current_user_id])
   end
 
   def add_rental
@@ -38,7 +64,8 @@ class FrontpageController < ApplicationController
       if user = Corporation.authenticate(params[:username], params[:password])
         # Save the user ID in the session so it can be used in
         # subsequent requests
-        session[:current_user_id] = user.name
+        session[:current_user_id] = user.id
+        session[:current_user_name] = user.name
         redirect_to root_url
       else
       	flash[:login_notice] = "Username/password incorrect."

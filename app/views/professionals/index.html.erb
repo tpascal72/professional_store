@@ -1,5 +1,8 @@
 <%= render 'Frontpage/header_links' %>
 <section id="content_holder">
   <h1>Listing all professionals</h1>
+  <%= form_tag search_results_path, id: "available", method: 'get' do %>
+    <%= submit_tag "Show available" %>
+  <% end %>
   <%= render 'professional_list' %>
 </section>

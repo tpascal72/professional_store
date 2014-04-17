@@ -1,0 +1,32 @@
+<%= render 'header_links' %>
+<section id="content_holder">
+<h3>Results</h3>
+  <% if session[:professional] %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Cost</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @professionals.each do |professional| %>
+          <tr>
+            <td><%= professional.fname %> <%= professional.lname %></td>
+            <td><%= professional.category.name %></td>
+            <td></td>
+            <td><%= number_to_currency (professional.cost_per_hour * session[:hours][session[:professional].index(professional.id)].to_i * session[:days][session[:professional].index(professional.id)].to_i) %></td>
+            <td><%= link_to 'Show', professional %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <table>
+      <tr><td>No rentals yet</td></tr>
+    </table>
+  <% end %>
+</section>

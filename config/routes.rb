@@ -5,6 +5,12 @@ ProfessionalStore::Application.routes.draw do
   
   root 'frontpage#index'
 
+  get 'about' => 'frontpage#about'
+
+  get 'contact' => 'frontpage#contact'
+
+  get 'cart' => 'frontpage#cart'
+
   get 'professionals_listing' => 'professionals#index'
 
   get 'category_listing' => 'categories#index'

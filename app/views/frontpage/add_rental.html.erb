@@ -1,11 +1,12 @@
 <%= render 'header_links' %>
 <section id="content_holder">
 <h3>Results</h3>
-
-<% if session[:professional] %>
-  <p>Professionals in cart: <%= session[:professional].count %> 
-  </p>
-<% else %>
-  <p>No rentals yet</p>
-<% end %>
+  <main id="content">
+    <% if session[:professional] %>
+      <p>Professionals in cart: <%= session[:professional].count %> 
+      </p>
+    <% else %>
+      <p>No rentals yet</p>
+    <% end %>
+  </main>
 </section>

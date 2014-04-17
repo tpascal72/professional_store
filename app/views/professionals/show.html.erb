@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <%= render 'Frontpage/header_links' %>
 <section id="content_holder">
-  <section id="content">
+  <main id="content">
     <p><%= image_tag @professional.image.url %></p>
 
     <p>
@@ -28,7 +28,7 @@
         <%= @professional.category.name %>
       </p>
     <% end %>
-  </section>
+  </main>
   <% if session[:current_user_id] %>
     <% if session[:professional].nil? || !(session[:professional].include? @professional.id ) %>
       <%= form_tag add_rental_path, id: "rental", method: 'post' do %>
