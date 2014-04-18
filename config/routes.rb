@@ -19,6 +19,8 @@ ProfessionalStore::Application.routes.draw do
 
   post 'add_rental' => 'frontpage#add_rental'
 
+  post 'make_order' => 'frontpage#make_order'
+
   get 'search_results' => 'frontpage#search_results', as: 'search_results'
 
 

@@ -35,8 +35,42 @@ class FrontpageController < ApplicationController
   end
 
   def make_order
-  	@professionals = Professional.find(session[:professional])
-  	@corporation = Corporation.find(session[:current_user_id])
+  	if params[:commit] == 'Make Order'
+  		@professionals = Professional.find(session[:professional])
+  		@corporation = Corporation.find(session[:current_user_id])
+
+  		order = @corporation.orders.build
+
+  		order.status = 'New'
+  		order.pst_rate = @corporation.province.pst.round(5)
+			order.gst_rate = @corporation.province.gst.round(5)
+			order.hst_rate = @corporation.province.hst.round(5)
+
+			order.save
+
+  		@professionals.each do |professional|
+  			related_index = session[:professional].index(professional.id).to_i
+  			start_date = session[:start_days][related_index].to_i.days.from_now.to_date
+	      end_date = start_date + session[:days][related_index].to_i
+
+  			rental = order.rentals.build
+
+  			rental.amount = (professional.cost_per_hour.to_f.round(2) * session[:hours][related_index].to_i * session[:days][related_index].to_i)
+  			rental.start_date = start_date
+  			rental.end_date = end_date
+  			rental.professional_id = professional.id
+
+  			professional.available = false
+  			professional.save
+	  		
+	  		rental.save
+    	end
+
+    	session[:professional] = nil
+      session[:hours] = nil
+      session[:days] = nil
+      session[:start_days] = nil
+	 	end
   end
 
   def add_rental
@@ -82,4 +116,6 @@ class FrontpageController < ApplicationController
       flash[:login_notice] = "You have been logged out."
     end
   end
+
+
 end
