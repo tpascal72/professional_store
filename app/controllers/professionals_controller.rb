@@ -4,7 +4,7 @@ class ProfessionalsController < ApplicationController
   # GET /professionals
   # GET /professionals.json
   def index
-    @professionals = Professional.all
+    @professionals = Professional.all.page(params[:page]).per(5)
   end
 
   # GET /professionals/1

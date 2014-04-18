@@ -6,7 +6,7 @@
     <%= submit_tag "Available" %>
   <% end %>
   <%= form_tag search_results_path, id: "sort", method: 'get' do %>
-    <%= hidden_field_tag :search_keywords, params[:search_keywords] %>
+    <%= hidden_field_tag :search_keyword, params[:search_keywords] %>
     <%= hidden_field_tag :cat_id, params[:cat_id] %>
     <%= submit_tag "Recently Updated" %>
   <% end %>

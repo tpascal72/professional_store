@@ -9,6 +9,9 @@ gem "paperclip", "~> 3.5.3"
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# pagination support
+gem 'kaminari'
+
 # Admin Dashboard
 gem 'activeadmin', github: 'gregbell/active_admin'
 
