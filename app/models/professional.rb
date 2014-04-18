@@ -1,10 +1,19 @@
 class Professional < ActiveRecord::Base
-  has_attached_file :image, styles: { thumb: "80x80#" }, whiny_thumbnails: false
+  has_attached_file :image
   has_many :rentals
   belongs_to :category
 
   validates :fname, :lname, :cost_per_hour, :skills, presence: true
   validates :cost_per_hour, numericality: true, format: { with: /\A\d+\.?\d{0,2}\z/}
+
+  def remove_image=(value)
+    if value == '1'
+      self.image = nil
+    end
+  end
+
+  def remove_image
+  end
 
   def self.keyword_search(keywords, cat_id) #Displays search results
   	

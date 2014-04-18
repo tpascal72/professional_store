@@ -1,12 +1,7 @@
 ActiveAdmin.register Professional do
 
   
-  permit_params :fname, :lname, :cost_per_hour, :available, :skills, :image, :category_id
-
-  show do 
-  	professional.fname
-  end
-
+  permit_params :fname, :lname, :cost_per_hour, :available, :skills, :image, :category_id, :remove_image
 
 
   form html: { multipart: true } do |f|
@@ -19,7 +14,11 @@ ActiveAdmin.register Professional do
       f.input :skills
     end
     f.inputs "Image" do
-      f.input :image, required: false
+      if f.object.image_file_name.to_s != ''
+        f.input :remove_image, as: :boolean, required: false, label: 'Remove professional image'
+      else
+        f.input :image, required: false
+      end
     end
     f.actions
   end

@@ -8,17 +8,29 @@
           <th>Name</th>
           <th>Start Date</th>
           <th>End Date</th>
-          <th>Cost</th>
-          <th></th>
+          <th>Subtotal</th>
+          <th>Taxes</th>
+          <th>Total</th>
+          <th>View</th>
         </tr>
       </thead>
       <tbody>
         <% @professionals.each do |professional| %>
+          <% 
+            related_index = session[:professional].index(professional.id).to_i
+            subtotal = (professional.cost_per_hour.to_f.round(2) * session[:hours][related_index].to_i * session[:days][related_index].to_i)
+            subtotal = subtotal.to_f.round(2)
+            taxes = (subtotal * (@corporation.province.pst.round(5) + @corporation.province.gst.round(5) + @corporation.province.hst.round(5))).round(2)
+            total = subtotal + taxes
+            start_date = session[:start_days][related_index].to_i.days.from_now.to_date
+          %>
           <tr>
             <td><%= professional.fname %> <%= professional.lname %></td>
-            <td><%= professional.category.name %></td>
+            <td><%= start_date %></td>
             <td></td>
-            <td><%= number_to_currency (professional.cost_per_hour * session[:hours][session[:professional].index(professional.id)].to_i * session[:days][session[:professional].index(professional.id)].to_i) %></td>
+            <td><%= number_to_currency(subtotal) %></td>
+            <td><%= number_to_currency(taxes) %></td>
+            <td><%= number_to_currency(total) %></td>
             <td><%= link_to 'Show', professional %></td>
           </tr>
         <% end %>
