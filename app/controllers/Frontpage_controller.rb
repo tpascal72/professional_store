@@ -12,14 +12,14 @@ class FrontpageController < ApplicationController
   end
 
   def search_results #Displays search results
-  	if params[:search_keywords].nil?
+  	if params[:search_keywords_head].nil?
       @professionals = Array.new
-    elsif params[:search_keywords] == ""
+    elsif params[:search_keywords_head] == ""
       @professionals = Array.new
     else
-      @professionals = Professional.keyword_search(params[:search_keywords], params[:cat_id]).page(params[:page]).per(5)
+      @professionals = Professional.keyword_search(params[:search_keywords_head], params[:cat_id_head]).page(params[:page]).per(5)
     end
-    
+
     if params[:commit] == 'Recently Updated'
       @professionals = Professional.keyword_search(params[:search_keyword], params[:cat_id]).order('updated_at DESC').page(params[:page]).per(5)
     end

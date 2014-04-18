@@ -12,16 +12,30 @@ ActiveAdmin.register_page "Dashboard" do
 
     # Here is an example of a simple dashboard with columns and panels.
     #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
+    columns do
+        column do
+            panel "Unpaid Orders" do
+                Corporation.includes(:orders).where(orders: {status: 'Unpaid'}).map do |company|
+                #Order.where(status: 'Unpaid').map do |order|
+                    h2 company.name
+
+                    company.orders.each do |order|
+                        h3 "Order Number: " + order.id.to_s
+                        order_total = 0
+                        order.rentals.each do |rental|
+                            taxes = (rental.amount.round(2) * (order.pst_rate.round(5) + order.gst_rate.round(5) + order.hst_rate.round(5))).round(2)
+                            b "Rental " + rental.id.to_s + " Amount: " + number_to_currency(rental.amount)  + " Taxes: " + number_to_currency(taxes) 
+                            order_total += (taxes + rental.amount).round(2)
+                            br
+                        end
+                        b "Order total: " + number_to_currency(order_total)
+                        br
+                        br
+                    end
+                end
+            end
+        end
+    end
 
     #   column do
     #     panel "Info" do
