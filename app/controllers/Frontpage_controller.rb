@@ -74,7 +74,7 @@ class FrontpageController < ApplicationController
 
 	  		grand_total += (subtotal + taxes)
     	end
-
+    	@order_id = order.id
     	@amount = grand_total
 
     	session[:professional] = nil

@@ -2,13 +2,13 @@
 <section id="content_holder">
   <main id="content">
     <p>Order made</p>
-    <form name="_xclick" action="https://www.paypal.com/ca/cgi-bin/webscr" method="post">
+    <form name="_xclick" action="https://www.sandbox.paypal.com/cgi-bin/webscr?" method="post">
     <input type="hidden" name="cmd" value="_xclick">
-    <input type="hidden" name="business" value="ashtom@mymts.com">
+    <input type="hidden" name="business" value="payment@itspr.com">
     <input type="hidden" name="currency_code" value="CAD">
-    <input type="hidden" name="item_name" value="Professionals">
+    <input type="hidden" name="item_name" value="Order <%= @order_id %>" >
     <input type="hidden" name="amount" value='<%= @amount %>'>
-    <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+    <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
     </form>
 
 
